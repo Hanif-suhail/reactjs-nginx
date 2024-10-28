@@ -5,8 +5,10 @@ WORKDIR /app
 # Copy only package.json and package-lock.json
 COPY package*.json ./
 
+ENV NODE_OPTIONS="--no-warnings"
+
 # Install only production dependencies
-RUN npm ci --production
+RUN npm ci --omit=dev
 
 # Copy the rest of the application code
 COPY . .
