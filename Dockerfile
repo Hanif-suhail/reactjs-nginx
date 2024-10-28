@@ -8,7 +8,7 @@ COPY package*.json ./
 ENV NODE_OPTIONS="--no-warnings"
 
 # Install only production dependencies
-RUN npm ci --omit=dev --verbose
+RUN npm install --omit=dev --verbose
 
 # Copy the rest of the application code
 COPY . .
