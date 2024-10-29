@@ -22,3 +22,6 @@ RUN rm -rf /usr/share/nginx/html/*
 
 # Copy the built React app from the previous stage
 COPY --from=build /app/build /usr/share/nginx/html
+#-g will help to add more config to overwrite default config; deamon off will ennsure nginx run on the backgraound
+EXPOSE 80
+CMD [ "nginx", "-g", "deamon off;" ]
